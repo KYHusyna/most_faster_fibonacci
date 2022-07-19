@@ -5,14 +5,39 @@ public class Main {
 
     public static void main(String[] args) {
 
-        calculate_method(1, 30);
-        calculate_method(2, 100);
-        calculate_method(3, 100);
+        ArrayList<Double> faster_method = new ArrayList<>();
+        int index = 0;
+        double min;
+        String method_number="";
 
-        System.out.println("Third method is faster");
+        faster_method.add(calculate_method(1, 40));
+        faster_method.add(calculate_method(2, 100));
+        faster_method.add(calculate_method(3, 100));
+
+        min = faster_method.get(index);
+        for (int i = 0; i < faster_method.size(); i++) {
+            System.out.println(faster_method.get(i));
+            if (min > faster_method.get(i)) {
+                min = faster_method.get(i);
+                index = i;
+            }
+        }
+
+        switch (index){
+            case 0:
+                method_number = "First";
+                break;
+            case 1:
+                method_number = "Second";
+                break;
+            case 2:
+                method_number = "Third";
+                break;
+        }
+        System.out.println(method_number + " method is faster");
     }
 
-    private static void calculate_method(int type, int size) {
+    private static double calculate_method(int type, int size) {
         long miliseconds_start, miliseconds_finish;
         int n1 = 0;
         double elapsed = 0;
@@ -53,6 +78,7 @@ public class Main {
         }
         System.out.println("---------------------------------");
 
+        return elapsed;
     }
 
     private static long f(int n) {
