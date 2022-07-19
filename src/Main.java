@@ -16,7 +16,6 @@ public class Main {
 
         min = faster_method.get(index);
         for (int i = 0; i < faster_method.size(); i++) {
-            System.out.println(faster_method.get(i));
             if (min > faster_method.get(i)) {
                 min = faster_method.get(i);
                 index = i;
